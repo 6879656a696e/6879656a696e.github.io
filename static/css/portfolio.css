@@ -1,0 +1,398 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Open+Sans:ital,wght@0,800;1,800&display=swap');
+
+body.before-load {
+    overflow: hidden;
+}
+
+/*header*/
+header {
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    color: #545454;
+    z-index: 9999;
+}
+header ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+header ul li span.mMenu:hover{
+    cursor: pointer;
+}
+
+/*fixed*/
+.fixedContainer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+.container {
+    overflow: hidden;
+}
+
+.scrolling-text {
+  display: inline-block;
+  transition: transform 0.5s cubic-bezier(0.23, 0.36, 0.28, 0.83);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.scrolling-text .scrolling-text-content {
+    display: inline-block;
+    font-family: 'Open Sans','IBM Plex Sans','IBM Plex Sans KR';
+    font-style: italic;
+    font-size: 8em;
+    font-weight: bold;
+    text-shadow: -1px 0px #848484, 0px 1px #848484, 1px 0px #848484, 0px -1px #848484;
+    color: #545454;
+    white-space: nowrap;
+}
+
+.scroll-section {
+	position: relative;
+	padding-top: 50vh;
+}
+
+.sticky-elem {
+	display: none;
+	position: fixed;
+	left: 0;
+	width: 100%;
+}
+
+#show-scene-1 #scroll-section-1 .sticky-elem,
+#show-scene-3 #scroll-section-3 .sticky-elem {
+	display: block;
+	will-change: transform, opacity;
+}
+
+#show-scene-2 #scroll-section-2 .sticky-elem {
+	display: none;
+	will-change: transform, opacity;
+}
+
+#show-scene-3 #scroll-section-3 .sticky-elem {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.scroll-effect-end .sticky-elem {
+	/* 스크롤 효과가 모두 끝나고, 아래 일반 콘텐츠 영역에서는 sticky-elem들을 모두 안보이도록 */
+	display: none !important;
+}
+
+.sticky-elem-canvas {
+	top: 0;
+	height: 100%;
+}
+.sticky-elem-canvas canvas {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+/*section-0*/
+section#scroll-section-0 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff5e2;
+}
+
+.scroll-indicator {
+    position: fixed;
+    left: 50%;
+    bottom: 0px;
+    z-index: 9999;
+}
+
+.scroll {
+    width: 1px;
+    height: 80px;
+    background-color: rgba(0,0,0,.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.scroll-line {
+   width: 100%;
+    height: 100%;
+    display: block;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 50%);
+    background-position: 0 -80px;
+    background-size: 100% 200%;
+    animation: scrolldown 2s cubic-bezier(0.76, 0, 0.3, 1) forwards infinite;
+}
+@keyframes scrolldown {
+	0%{
+		background-position: 0 -80px;
+	}
+	75% {
+		background-position: 0 0;
+	}
+	100%{
+		background-position: 0 80px;
+	}
+}
+
+.content-section_headline-container {
+    position: relative;
+}
+
+.content-section_headline {
+    margin: 0;
+    opacity: 0;
+    font-weight: 700;
+    color: #fafafa;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.content-section_headline-container span {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0 10px;
+    color: #545454;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+
+.big-message {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 5px 0;
+	height: auto;
+	font-size: 2.5rem;
+    display: none;
+}
+
+.big-message.active {
+	position: fixed;
+	left: 0;
+	top: 50%;
+}
+
+section#scroll-section-0 .big-message h1 {
+    font-family: 'Open Sans','IBM Plex Sans','IBM Plex Sans KR';
+    text-shadow: -1px 0px #545454, 0px 1px #545454, 1px 0px #545454, 0px -1px #545454;
+    font-size: 17vw;
+    font-weight: bold;
+    color: #fff5e2;
+}
+
+section#scroll-section-0 .big-message h1 span.active {
+    color: #545454;
+    text-shadow: none;
+}
+
+/* section-1 */
+section#scroll-section-1 {
+    background: #fff5e2;
+    color: #545454;
+}
+#scroll-section-1 h1 {
+	position: relative;
+	top: -10vh;
+	z-index: 5;
+	font-size: 4rem;
+	text-align: center;
+}
+
+.main-message {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 45%;
+	margin: 5px 0;
+	height: 3em;
+	font-size: 2.5rem;
+	opacity: 0;
+}
+
+.main-message p {
+	font-weight: bold;
+	text-align: center;
+	line-height: 1.2;
+}
+
+.main-message a.link {
+    margin: 0 10px;
+    text-shadow: -1px 0px #545454, 0px 1px #545454, 1px 0px #545454, 0px -1px #545454;
+    color: #fff5e2;
+}
+
+/* section-2 */
+section#scroll-section-2 {
+    position: relative;
+    background: #fff5e2;
+}
+
+section#scroll-section-2 .big-message h1 {
+    font-family: 'Open Sans','IBM Plex Sans','IBM Plex Sans KR';
+    text-shadow: -1px 0px #545454, 0px 1px #545454, 1px 0px #545454, 0px -1px #545454;
+    color: #fff5e2;
+    font-size: 17vw;
+    font-weight: bold;
+}
+
+section#scroll-section-2 .big-message h1 span.active {
+    color: #545454;
+    text-shadow: none;
+}
+
+section#scroll-section-2 ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 2400px;
+    z-index: 10;
+}
+
+section#scroll-section-2 ul li {
+    position: relative;
+    line-height: .8;
+    padding: 0 0 100px;
+    margin-bottom: 100px;
+    white-space: nowrap;
+}
+
+section#scroll-section-2 ul li:hover a{
+    animation: scrollText 15s linear infinite;
+    animation-delay: -15s;
+}
+
+section#scroll-section-2 ul li a {
+    font-family: 'Open Sans','IBM Plex Sans','IBM Plex Sans KR';
+    font-size: 13em;
+    color: #fff5e2;
+    text-shadow: -1px 0px #545454, 0px 1px #545454, 1px 0px #545454, 0px -1px #545454;
+    cursor: pointer;
+}
+section#scroll-section-2 ul li:hover a{
+    color: #545454;
+    text-shadow: none;
+    transition: .4s;
+}
+
+section#scroll-section-2 ul li small{
+    position: absolute;
+    top: -30px;
+    left: 10px;
+    font-family: 'Open Sans','IBM Plex Sans','IBM Plex Sans KR';
+    font-size:  4em;
+    color: rgba(255,255,255,.4);
+}
+
+section#scroll-section-2 .slide-text {
+    font-family: 'Open Sans','IBM Plex Sans','IBM Plex Sans KR';
+    margin-top: 10vh;
+    font-size: 7vw;
+    white-space: nowrap;
+    animation: scrollText 15s linear infinite;
+    animation-delay: -15s;
+}
+
+section#scroll-section-2 .slide-text:hover{
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+    -o-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+.slide-text > h1 {
+    display: inline-block;
+    color: #545454;
+}
+
+@keyframes scrollText {
+  from   { transform: translateX(0%); }
+  to { transform: translateX(-100%); }
+}
+
+/* section-3 */
+section#scroll-section-3 {
+    background: #fff5e2;
+    color: #545454;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#scroll-section-3 h1 {
+    text-align: center;
+}
+
+.mainWrap {
+    width: 50vw;
+    height: 50vw;
+    border-radius: 50%;
+    color: #fff5e2;
+    background: rgba(255,255,255,.3);
+}
+
+.mainWrap form {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainWrap form dl dt,
+.mainWrap form dl dd {
+    display: inline-block;
+}
+
+.mainWrap form dl dt {
+    width: 10vw;
+}
+
+form > input {
+    width: 35vw;
+    height: 4vh;
+    border-radius: 20px;
+    outline: none;
+    border: 1px solid #545454;
+    color: #545454;
+    background: none;
+    margin: 10px 0;
+    padding: 20px;
+}
+
+form > textarea {
+    width: 35vw;
+    height: 30vh;
+    margin-top: 10px;
+    border-radius: 20px;
+    outline: none;
+    border: 1px solid #545454;
+    color: #545454;
+    background: none;
+    padding: 20px;
+}
+
+form > .sendBtn {
+    margin-top: 20px;
+    width: 10vw;
+    height: 4vh;
+    border-radius: 10px;
+    border: 1px solid #545454;
+    outline: none;
+    background: none;
+    color: #545454;
+}
+
+form > .sendBtn:hover{
+    cursor: pointer;
+    transition: .4s;
+    background: #545454;
+    color: #fff5e2;
+}
