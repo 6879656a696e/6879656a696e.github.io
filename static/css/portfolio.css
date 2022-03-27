@@ -5,25 +5,6 @@ body.before-load {
     overflow: hidden;
 }
 
-/*header*/
-header {
-    padding: 1rem;
-    position: fixed;
-    width: 100%;
-    left: 0;
-    top: 0;
-    color: #545454;
-    z-index: 9999;
-}
-header ul {
-    display: flex;
-    justify-content: space-between;
-}
-
-header ul li span.mMenu:hover{
-    cursor: pointer;
-}
-
 /*fixed*/
 .fixedContainer {
     position: fixed;
@@ -71,7 +52,7 @@ header ul li span.mMenu:hover{
 }
 
 #show-scene-2 #scroll-section-2 .sticky-elem {
-	display: none;
+	display: block;
 	will-change: transform, opacity;
 }
 
@@ -206,7 +187,7 @@ section#scroll-section-1 {
 }
 
 .main-message {
-	display: flex;
+    display: none;
 	align-items: center;
 	justify-content: center;
 	top: 45%;

@@ -30,3 +30,23 @@ body{
     width: 100%;
     display: block;
 }
+
+
+/*header*/
+header {
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    color: #545454;
+    z-index: 9999;
+}
+header ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+header ul li span.mMenu:hover{
+    cursor: pointer;
+}

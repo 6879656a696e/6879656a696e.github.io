@@ -347,6 +347,7 @@
             if (currentScene < sceneInfo.length - 1) {
                 currentScene++;
             }
+
             document.body.setAttribute('id', `show-scene-${currentScene}`);
             document.body.classList.remove('scroll-effect-end');
         }
